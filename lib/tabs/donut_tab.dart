@@ -1,3 +1,4 @@
+import 'package:donut_app_2b_diaz/utils/donut_tile.dart';
 import 'package:flutter/material.dart';
 
 class DonutTab extends StatelessWidget {
@@ -11,11 +12,6 @@ class DonutTab extends StatelessWidget {
     ["Choco", "95", Colors. brown, "lib/images/chocolate_donut.png"],
   ];
 
-
-
-
-  
-
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -28,9 +24,9 @@ class DonutTab extends StatelessWidget {
       itemBuilder: (context, index) {
         return DonutTile(
           donutFlavor: donutsOnsale[index][0],
-          donutPrice: donutsOnsale[index][0],
-          donutColor: donutsOnsale[index][0],
-          imageName: donutsOnsale[index][0],
+          donutPrice: donutsOnsale[index][1],
+          donutColor: donutsOnsale[index][2],
+          imageName: donutsOnsale[index][3],
 
         );
     });
