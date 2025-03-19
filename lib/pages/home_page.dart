@@ -107,7 +107,6 @@ class _HomePageState extends State<HomePage> {
                        backgroundColor: Colors.pink),
                     child: Text('view cart', style: TextStyle(color: Colors.white),
                     )),
-
               ],
               ),
           )
