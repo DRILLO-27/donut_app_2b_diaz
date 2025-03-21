@@ -2,22 +2,22 @@ import 'package:donut_app_2b_diaz/utils/donut_tile.dart';
 import 'package:flutter/material.dart';
 
 class PancakesTab extends StatelessWidget {
+  final Function(double) addToCart;
+
+  PancakesTab({super.key, required this.addToCart});
 
   //lista de donas
   final List  donutsOnsale = [
     //[donutFlavor, donutPrice, donutColor, imageName]
-    ["Ice cream","Krispy Kreme","36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry","Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape","cotsco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco","Walmart","95", Colors. brown, "lib/images/chocolate_donut.png"],
-    ["Ice cream","Krispy Kreme","36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry","Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape","cotsco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco","Walmart","95", Colors. brown, "lib/images/chocolate_donut.png"],
+    ["pancake","Starbucks","30", Colors.blue, "lib/images/panqueque2.png"],
+    ["Chocolate pancake","don nico", "45", Colors.red, "lib/images/panqueque1 (1).png"],
+    ["Honey","cotsco", "30", Colors.purple, "lib/images/panqueque3.png"],
+    ["Caramel","Walmart","40", Colors. brown, "lib/images/panqueques4.png"],
+    ["Honey","cotsco", "30", Colors.purple, "lib/images/panqueque3.png"],
+    ["Caramel","Walmart","40", Colors. brown, "lib/images/panqueques4.png"],
+    ["pancake","Starbucks","30", Colors.blue, "lib/images/panqueque2.png"],
+    ["Chocolate pancake","don nico", "45", Colors.red, "lib/images/panqueque1 (1).png"],
   ];
-
-
-  PancakesTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +37,10 @@ class PancakesTab extends StatelessWidget {
           donutPrice: donutsOnsale[index][2],
           donutColor: donutsOnsale[index][3],
           imageName: donutsOnsale[index][4],
+          onTap: () {
+            double price = double.tryParse(donutsOnsale[index][2]) ?? 0;
+            addToCart(price);
+            },
 
         );
     });

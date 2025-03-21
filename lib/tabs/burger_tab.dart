@@ -2,22 +2,25 @@ import 'package:donut_app_2b_diaz/utils/donut_tile.dart';
 import 'package:flutter/material.dart';
 
 class BurgerTab extends StatelessWidget {
+  final Function(double) addToCart;
+
+  BurgerTab({super.key, required this.addToCart});
 
   //lista de donas
   final List  donutsOnsale = [
     //[donutFlavor, donutPrice, donutColor, imageName]
-    ["Ice cream","Krispy Kreme","36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry","Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape","cotsco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco","Walmart","95", Colors. brown, "lib/images/chocolate_donut.png"],
-    ["Ice cream","Krispy Kreme","36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry","Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape","cotsco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco","Walmart","95", Colors. brown, "lib/images/chocolate_donut.png"],
+    ["Simple Burger","Angry burger","95", Colors.green, "lib/images/hamburguesa (1).png"],
+    ["double Cheeseburger","Burger king", "120", Colors.pink, "lib/images/hamburguesa (2).png"],
+    ["simple Burger","MC Donalds", "80", Colors.purple, "lib/images/hamburguesa-con-queso.png"],
+    ["double Beef burger","Don Nico","140", Colors. blueGrey, "lib/images/hamburguesa.png"],
+    ["double Cheeseburger","Burger king", "120", Colors.pink, "lib/images/hamburguesa (2).png"],
+    ["simple Burger","MC Donalds", "80", Colors.purple, "lib/images/hamburguesa-con-queso.png"],
+    ["double Beef burger","Don Nico","140", Colors. blueGrey, "lib/images/hamburguesa.png"],
+    ["Simple Burger","Angry burger","95", Colors.green, "lib/images/hamburguesa (1).png"],
   ];
 
-
-  BurgerTab({super.key});
+ 
+  
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,10 @@ class BurgerTab extends StatelessWidget {
           donutPrice: donutsOnsale[index][2],
           donutColor: donutsOnsale[index][3],
           imageName: donutsOnsale[index][4],
-
+          onTap: () {
+            double price = double.tryParse(donutsOnsale[index][2]) ?? 0;
+            addToCart(price);
+            },
         );
     });
   }

@@ -2,22 +2,22 @@ import 'package:donut_app_2b_diaz/utils/donut_tile.dart';
 import 'package:flutter/material.dart';
 
 class SmoothieTab extends StatelessWidget {
+  final Function(double) addToCart;
+
+  SmoothieTab({super.key, required this.addToCart});
 
   //lista de donas
   final List  donutsOnsale = [
     //[donutFlavor, donutPrice, donutColor, imageName]
-    ["Ice cream","Krispy Kreme","36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry","Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape","cotsco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco","Walmart","95", Colors. brown, "lib/images/chocolate_donut.png"],
-    ["Ice cream","Krispy Kreme","36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry","Dunkin donuts", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape","cotsco", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco","Walmart","95", Colors. brown, "lib/images/chocolate_donut.png"],
+    ["Toronja","Yakult","50", Colors.blue, "lib/images/pomelo.png"],
+    ["Grape","Don nico", "45", Colors.red, "lib/images/uva.png"],
+    ["Watermelon","cotsco", "84", Colors.purple, "lib/images/sandia.png"],
+    ["Orange","Walmart","65", Colors. brown, "lib/images/naranja.png"],
+     ["Toronja","Yakult","50", Colors.blue, "lib/images/pomelo.png"],
+    ["Grape","Don nico", "45", Colors.red, "lib/images/uva.png"],
+    ["Watermelon","cotsco", "84", Colors.purple, "lib/images/sandia.png"],
+    ["Orange","Walmart","65", Colors. brown, "lib/images/naranja.png"],
   ];
-
-
-  SmoothieTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,10 @@ class SmoothieTab extends StatelessWidget {
           donutPrice: donutsOnsale[index][2],
           donutColor: donutsOnsale[index][3],
           imageName: donutsOnsale[index][4],
-
+          onTap: () {
+            double price = double.tryParse(donutsOnsale[index][2]) ?? 0;
+            addToCart(price);
+            },
         );
     });
   }
