@@ -29,7 +29,7 @@ class SmoothieTab extends StatelessWidget {
         //Número de columnas
         crossAxisCount: 2,
         //Relacion de aspecto o proporción
-        childAspectRatio: 1/1.5),
+        childAspectRatio: 1/1.65),
       itemBuilder: (context, index) {
         return DonutTile(
           donutFlavor: donutsOnsale[index][0],

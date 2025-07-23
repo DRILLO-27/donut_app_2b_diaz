@@ -5,6 +5,7 @@ import 'package:donut_app_2b_diaz/tabs/pizza_tab.dart';
 import 'package:donut_app_2b_diaz/tabs/smoothie_tab.dart';
 import 'package:donut_app_2b_diaz/utils/my_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:donut_app_2b_diaz/pages/supermarket_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,18 +40,48 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-          appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              leading: Icon(
-                Icons.menu,
-                color: Colors.pinkAccent[800],
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(decoration: BoxDecoration(
+                color: Color.fromARGB(255, 218, 113, 148),
               ),
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 24.0),
-                  child: Icon(Icons.person),
-                )
-              ]),
+              child: (Text('Menu', style: TextStyle(
+                color: Colors.white, fontSize: 24
+              ),)),
+              ),
+              ListTile(
+                leading: const Icon(Icons.store),
+                title: const Text('SuperMarket'),
+                onTap: () {
+                  Navigator.pop(context); //Cerrar del drawer
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SuperMarketPage(),
+                  )
+                  );
+                },
+              )
+            ],
+          ),
+        ),
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            // Icono de menú con funcionalidad para abrir el drawer
+            leading: Builder(
+              builder: (context) => IconButton(
+                icon: Icon(Icons.menu, color: Colors.grey[800]),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              ),
+            ),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 24.0),
+                child: Icon(Icons.person),
+              )
+            ],
+          ),
           body: Column(children: [
             // Texto principal
             Padding(
@@ -58,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                   const EdgeInsets.symmetric(horizontal: 36, vertical: 18),
               child: Row(
                 children: [
-                  Text("I want to", style: TextStyle(fontSize: 32)),
+                  Text("I want to ", style: TextStyle(fontSize: 32)),
                   Text("Eat",
                       style: TextStyle(
                           fontSize: 32,
@@ -121,5 +152,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-  
