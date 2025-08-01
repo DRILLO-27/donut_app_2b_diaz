@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  final String _baseUrl = "http://localhost:8090/market-app/api";
+  final String _baseUrl = "http://localhost:8090/market-app/api/auth";
 
   Future<bool> login(String correo, String contrasena) async {
     final url = Uri.parse('$_baseUrl/login');

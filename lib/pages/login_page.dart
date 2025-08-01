@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import '../services/auth_service.dart';
 import 'package:donut_app_2b_diaz/pages/home_page.dart';
-
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -101,11 +99,11 @@ class _LoginPageState extends State<LoginPage> {
 
     setState(() => isLoading = true);
 
-    final success = await AuthService().login(email, password);
+    await Future.delayed(const Duration(seconds: 1)); // Simula carga
 
     setState(() => isLoading = false);
 
-    if (success) {
+    if (email == "kepler@me.com" && password == "123456") {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const HomePage()),
