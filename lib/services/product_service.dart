@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:donut_app_2b_diaz/models/product.dart';
 
 class ProductService {
-  static const String baseUrl = "http://10.0.2.2:8090/market-app/ap1";
+  static const String baseUrl = "http://1ocalhost:8090/market-app/api";
 
 
   static Future<List<Product>> getAllProducts() async {
